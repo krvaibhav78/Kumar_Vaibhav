@@ -10,7 +10,7 @@
 
 🌐 **My Profile Website:**
 
-https://krvaibhav78.github.io/
+https://krvaibhav78.github.io/Kumar_Vaibhav
 
 ---
 
