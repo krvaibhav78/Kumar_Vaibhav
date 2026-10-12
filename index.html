@@ -1,946 +1,283 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Kumar Vaibhav | Portfolio</title>
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0f172a;
-            color: #e2e8f0;
-            line-height: 1.6;
-        }
-
-        /* ================= NAVBAR ================= */
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 18px 8%;
-
-            z-index: 1000;
-
-            border-bottom: 1px solid #1e293b;
-        }
-
-        .logo {
-            font-size: 26px;
-            font-weight: bold;
-            color: #38bdf8;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav ul li a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #38bdf8;
-        }
-
-
-        /* ================= HERO ================= */
-
-        .hero {
-            min-height: 100vh;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 120px 8% 60px;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 900px;
-        }
-
-        /* PROFILE IMAGE */
-
-        .profile-image {
-            width: 170px;
-            height: 170px;
-
-            object-fit: cover;
-
-            border-radius: 50%;
-
-            border: 4px solid #38bdf8;
-
-            margin-bottom: 25px;
-
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.25);
-        }
-
-        .hero h1 {
-            font-size: 58px;
-            color: white;
-
-            margin-bottom: 12px;
-        }
-
-        .hero h1 span {
-            color: #38bdf8;
-        }
-
-        .hero h2 {
-            font-size: 23px;
-            font-weight: normal;
-
-            color: #94a3b8;
-
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 18px;
-
-            color: #cbd5e1;
-
-            max-width: 760px;
-
-            margin: auto;
-        }
-
-
-        /* ================= BUTTONS ================= */
-
-        .buttons {
-            margin-top: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-
-            padding: 13px 27px;
-
-            margin: 8px;
-
-            border-radius: 8px;
-
-            text-decoration: none;
-
-            font-weight: bold;
-
-            transition: 0.3s;
-        }
-
-        .primary {
-            background: #38bdf8;
-            color: #0f172a;
-        }
-
-        .primary:hover {
-            background: #0ea5e9;
-            transform: translateY(-3px);
-        }
-
-        .secondary {
-            border: 1px solid #38bdf8;
-            color: #38bdf8;
-        }
-
-        .secondary:hover {
-            background: #38bdf8;
-            color: #0f172a;
-        }
-
-
-        /* ================= SECTIONS ================= */
-
-        section {
-            padding: 90px 8%;
-
-            max-width: 1150px;
-
-            margin: auto;
-        }
-
-        .section-title {
-            text-align: center;
-
-            font-size: 36px;
-
-            color: white;
-
-            margin-bottom: 45px;
-        }
-
-        .section-title span {
-            color: #38bdf8;
-        }
-
-
-        /* ================= ABOUT ================= */
-
-        .about {
-            max-width: 850px;
-
-            margin: auto;
-
-            text-align: center;
-        }
-
-        .about p {
-            color: #cbd5e1;
-
-            font-size: 17px;
-        }
-
-
-        /* ================= EDUCATION ================= */
-
-        .education-card {
-            background: #1e293b;
-
-            padding: 28px;
-
-            border-radius: 12px;
-
-            margin-bottom: 20px;
-
-            border-left: 4px solid #38bdf8;
-
-            transition: 0.3s;
-        }
-
-        .education-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .education-card h3 {
-            color: white;
-
-            margin-bottom: 8px;
-        }
-
-        .education-card p {
-            color: #94a3b8;
-        }
-
-
-        /* ================= SKILLS ================= */
-
-        .skills-container {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            justify-content: center;
-
-            gap: 15px;
-        }
-
-        .skill {
-            background: #1e293b;
-
-            padding: 12px 21px;
-
-            border-radius: 25px;
-
-            border: 1px solid #334155;
-
-            color: #cbd5e1;
-
-            transition: 0.3s;
-        }
-
-        .skill:hover {
-            border-color: #38bdf8;
-
-            color: #38bdf8;
-
-            transform: translateY(-3px);
-        }
-
-
-        /* ================= PROJECTS ================= */
-
-        .projects {
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(280px, 1fr));
-
-            gap: 25px;
-        }
-
-        .project-card {
-            background: #1e293b;
-
-            padding: 27px;
-
-            border-radius: 12px;
-
-            transition: 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-7px);
-
-            box-shadow:
-                0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .project-card h3 {
-            color: #38bdf8;
-
-            margin-bottom: 12px;
-        }
-
-        .project-card p {
-            color: #94a3b8;
-        }
-
-        .project-link {
-            display: inline-block;
-
-            margin-top: 15px;
-
-            color: #38bdf8;
-
-            text-decoration: none;
-
-            font-weight: bold;
-        }
-
-
-        /* ================= ACHIEVEMENTS ================= */
-
-        .achievement {
-            background: #1e293b;
-
-            padding: 20px;
-
-            border-radius: 10px;
-
-            margin-bottom: 15px;
-        }
-
-        .achievement strong {
-            color: #38bdf8;
-        }
-
-
-        /* ================= CONTACT ================= */
-
-        .contact {
-            text-align: center;
-        }
-
-        .contact p {
-            color: #94a3b8;
-
-            margin: 8px;
-        }
-
-        .contact a {
-            color: #38bdf8;
-
-            text-decoration: none;
-        }
-
-        .social-links {
-            margin-top: 25px;
-        }
-
-        .social-links a {
-            display: inline-block;
-
-            margin: 8px 15px;
-
-            color: #38bdf8;
-
-            text-decoration: none;
-
-            font-weight: bold;
-
-            padding: 10px 18px;
-
-            border: 1px solid #334155;
-
-            border-radius: 8px;
-
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            background: #38bdf8;
-
-            color: #0f172a;
-        }
-
-
-        /* ================= FOOTER ================= */
-
-        footer {
-            text-align: center;
-
-            padding: 30px;
-
-            border-top: 1px solid #1e293b;
-
-            color: #64748b;
-        }
-
-
-        /* ================= MOBILE ================= */
-
-        @media (max-width: 700px) {
-
-            nav {
-                padding: 15px 5%;
-            }
-
-            nav ul {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .hero h2 {
-                font-size: 19px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .profile-image {
-                width: 140px;
-                height: 140px;
-            }
-
-            section {
-                padding: 70px 5%;
-            }
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kumar Vaibhav | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f6fa;--card:#fff;--ink:#14213d;--mute:#56627a;--line:#d5dce8;--teal:#0f7f81;--amber:#d98a1c;--rose:#b4456a;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1626;--card:#15223a;--ink:#e8eef9;--mute:#9aa7c0;--line:#27395b;--teal:#3cc3c5;--amber:#f0b04a;--rose:#e67a9f;}}
+:root[data-theme="dark"]{--bg:#0d1626;--card:#15223a;--ink:#e8eef9;--mute:#9aa7c0;--line:#27395b;--teal:#3cc3c5;--amber:#f0b04a;--rose:#e67a9f;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.6}
+a{color:var(--teal)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:10px 5vw;gap:12px}
+.logo{font-weight:800;font-size:1.4rem;color:var(--ink);text-decoration:none}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{color:var(--mute);text-decoration:none;padding:6px 10px;border-radius:8px;font-size:.95rem}
+nav a.on{color:var(--ink);background:var(--card);box-shadow:inset 0 -2px 0 var(--teal)}
+button{font:inherit;cursor:pointer;color:inherit}
+#theme{border:1px solid var(--line);background:var(--card);border-radius:50%;width:38px;height:38px}
+main{max-width:1050px;margin:0 auto;padding:0 5vw}
+section{padding:64px 0 24px}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;margin:0 0 12px;font-weight:800}
+h2{font-size:1.9rem;margin:0 0 20px}
+h3{margin:0 0 6px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;padding-top:48px}
+.hero p{max-width:52ch}
+.avatar{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--teal);margin-bottom:14px}
+.btn{display:inline-block;padding:10px 18px;border-radius:10px;border:1px solid var(--teal);background:var(--teal);color:var(--bg);text-decoration:none;font-weight:600}
+.btn.alt{background:transparent;color:var(--teal)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.lab h2{font-size:1.15rem;margin-bottom:2px}
+.lab small{color:var(--mute)}
+.ctl{display:grid;grid-template-columns:110px 1fr 70px;align-items:center;gap:8px;font-size:.9rem;margin:6px 0}
+.ctl output{text-align:right;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--teal)}
+svg{width:100%;height:auto;display:block;margin:8px 0}
+.ax{stroke:var(--line);stroke-width:1}
+.c-o{stroke:var(--rose)}.c-h{stroke:var(--amber)}.c-t{stroke:var(--teal);stroke-width:3}
+.c-o,.c-h,.c-t{fill:none;stroke-width:2}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.stats b{display:block;font-size:1.15rem}
+.stats span{font-size:.78rem;color:var(--mute)}
+.legend{font-size:.8rem;color:var(--mute);display:flex;gap:14px;flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
+#verdict{font-size:.9rem;margin:8px 0 0;min-height:1.4em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.tl{border-left:3px solid var(--teal);padding-left:18px;display:grid;gap:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:.92rem}
+.chip:hover,.chip.on{border-color:var(--teal);background:var(--teal);color:var(--bg)}
+.hint{color:var(--mute);font-size:.9rem;margin:0 0 14px}
+.proj.hide{display:none}
+.proj button.more{margin-top:10px;background:none;border:none;color:var(--teal);padding:0;font-weight:600}
+.proj .extra{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:.92rem;color:var(--mute)}
+.proj.open .extra{display:block}
+.tag{font-size:.78rem;color:var(--mute);border:1px solid var(--line);border-radius:6px;padding:1px 7px;margin-right:4px}
+footer{text-align:center;color:var(--mute);padding:40px 0;font-size:.9rem}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .2s}
+#toast.show{opacity:1}
+@media (max-width:800px){.hero{grid-template-columns:1fr}nav a{padding:6px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#toast{transition:none}}
+</style>
 </head>
-
-
 <body>
+<header>
+  <a class="logo" href="#home">KV.</a>
+  <nav id="nav">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#education">Education</a>
+    <a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+  </nav>
+  <button id="theme" aria-label="Switch light or dark theme">◐</button>
+</header>
 
+<main>
+<section id="home" class="hero">
+  <div>
+    <img class="avatar" src="profile.jpg" alt="Kumar Vaibhav" onerror="this.style.display='none'">
+    <h1>Hi, I'm Kumar Vaibhav</h1>
+    <h2 style="font-size:1.15rem;color:var(--mute);font-weight:600">MTech Student at IIT Delhi, Industrial Engineering &amp; Operations Research</h2>
+    <p>I'm an engineering graduate working on optimization, operations research, machine learning and data analytics, solving real-world problems with computational and data-driven approaches.</p>
+    <p><a class="btn" href="#projects">View my projects</a> <a class="btn alt" href="#contact">Contact me</a></p>
+  </div>
 
-<!-- ================= NAVIGATION ================= -->
-
-<nav>
-
-    <div class="logo">
-        KV.
+  <div class="card lab" aria-labelledby="labT">
+    <h2 id="labT">Try it: find the best order size</h2>
+    <small>The classic EOQ model behind my Dynamic EOQ project. Move the sliders.</small>
+    <div class="ctl"><label for="D">Yearly demand</label><input id="D" type="range" min="1000" max="20000" step="500" value="12000"><output id="Do"></output></div>
+    <div class="ctl"><label for="S">Cost per order</label><input id="S" type="range" min="50" max="2000" step="50" value="500"><output id="So"></output></div>
+    <div class="ctl"><label for="H">Holding cost</label><input id="H" type="range" min="1" max="50" step="1" value="12"><output id="Ho"></output></div>
+    <div class="ctl"><label for="M">Your order size</label><input id="M" type="range" min="0.2" max="3" step="0.05" value="0.6"><output id="Mo"></output></div>
+    <svg id="chart" viewBox="0 0 600 240" role="img" aria-label="Cost curves against order size"></svg>
+    <div class="legend"><span><i style="background:var(--rose)"></i>Ordering cost</span><span><i style="background:var(--amber)"></i>Holding cost</span><span><i style="background:var(--teal)"></i>Total cost</span></div>
+    <div class="stats" style="margin-top:10px">
+      <div><b id="qs"></b><span>Best order size</span></div>
+      <div><b id="tc"></b><span>Lowest yearly cost</span></div>
+      <div><b id="ny"></b><span>Orders per year</span></div>
     </div>
-
-    <ul>
-
-        <li>
-            <a href="#home">Home</a>
-        </li>
-
-        <li>
-            <a href="#about">About</a>
-        </li>
-
-        <li>
-            <a href="#education">Education</a>
-        </li>
-
-        <li>
-            <a href="#skills">Skills</a>
-        </li>
-
-        <li>
-            <a href="#projects">Projects</a>
-        </li>
-
-        <li>
-            <a href="#contact">Contact</a>
-        </li>
-
-    </ul>
-
-</nav>
-
-
-
-<!-- ================= HERO ================= -->
-
-<section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <!--
-        IMPORTANT:
-        Keep your profile picture in the same folder
-        as index.html and name it profile.jpg
-        -->
-
-        <img
-            src="profile.jpg"
-            alt="Kumar Vaibhav"
-            class="profile-image"
-        >
-
-
-        <h1>
-            Hi, I'm
-            <span>Kumar Vaibhav</span>
-        </h1>
-
-
-        <h2>
-            MTech Student at IIT Delhi
-            <br>
-            Industrial Engineering & Operations Research
-        </h2>
-
-
-        <p>
-
-            I am an engineering graduate currently pursuing
-            an MTech in Industrial Engineering and Operations
-            Research at IIT Delhi.
-
-            My interests include optimization, operations
-            research, machine learning, data analytics,
-            and solving real-world engineering problems
-            using computational and data-driven approaches.
-
-        </p>
-
-
-        <div class="buttons">
-
-            <a
-                href="#projects"
-                class="btn primary"
-            >
-                View My Projects
-            </a>
-
-
-            <a
-                href="#contact"
-                class="btn secondary"
-            >
-                Contact Me
-            </a>
-
-        </div>
-
-    </div>
-
+    <p id="verdict" aria-live="polite"></p>
+  </div>
 </section>
-
-
-
-<!-- ================= ABOUT ================= -->
 
 <section id="about">
-
-    <h2 class="section-title">
-        About <span>Me</span>
-    </h2>
-
-
-    <div class="about">
-
-        <p>
-
-            I completed my Bachelor of Technology in
-            Agricultural Engineering from the Indian
-            Agricultural Research Institute (IARI),
-            New Delhi, with a CGPA of 8.19.
-
-        </p>
-
-
-        <br>
-
-
-        <p>
-
-            I am currently pursuing my MTech in Industrial
-            Engineering and Operations Research at
-            the Indian Institute of Technology Delhi.
-
-        </p>
-
-
-        <br>
-
-
-        <p>
-
-            I am interested in optimization, operations
-            research, machine learning, supply chain
-            management, data analysis and technology-driven
-            problem solving.
-
-        </p>
-
-    </div>
-
+  <h2>About me</h2>
+  <p style="max-width:70ch">I completed my Bachelor of Technology in Agricultural Engineering from the Indian Agricultural Research Institute (IARI), New Delhi, with a CGPA of 8.19. I'm now pursuing my MTech in Industrial Engineering and Operations Research at IIT Delhi.</p>
+  <p style="max-width:70ch">I'm interested in optimization, operations research, machine learning, supply chain management, data analysis and technology-driven problem solving.</p>
 </section>
-
-
-
-<!-- ================= EDUCATION ================= -->
 
 <section id="education">
-
-    <h2 class="section-title">
-        My <span>Education</span>
-    </h2>
-
-
-    <div class="education-card">
-
-        <h3>
-            Master of Technology (MTech)
-        </h3>
-
-        <p>
-            Industrial Engineering and Operations Research
-        </p>
-
-        <p>
-            Indian Institute of Technology Delhi (IIT Delhi)
-        </p>
-
-        <p>
-            Currently Pursuing
-        </p>
-
-    </div>
-
-
-
-    <div class="education-card">
-
-        <h3>
-            Bachelor of Technology (BTech)
-        </h3>
-
-        <p>
-            Agricultural Engineering
-        </p>
-
-        <p>
-            Indian Agricultural Research Institute (IARI),
-            New Delhi
-        </p>
-
-        <p>
-            2022 – 2026
-        </p>
-
-        <p>
-            CGPA: <strong>8.19 / 10</strong>
-        </p>
-
-    </div>
-
+  <h2>Education</h2>
+  <div class="tl">
+    <div><h3>Master of Technology (MTech)</h3>Industrial Engineering and Operations Research<br>Indian Institute of Technology Delhi<br><span class="tag">Currently pursuing</span></div>
+    <div><h3>Bachelor of Technology (BTech)</h3>Agricultural Engineering<br>Indian Agricultural Research Institute (IARI), New Delhi<br><span class="tag">2022 – 2026</span><span class="tag">CGPA 8.19 / 10</span></div>
+  </div>
 </section>
-
-
-
-<!-- ================= SKILLS ================= -->
 
 <section id="skills">
-
-    <h2 class="section-title">
-        My <span>Skills</span>
-    </h2>
-
-
-    <div class="skills-container">
-
-        <div class="skill">
-            Operations Research
-        </div>
-
-        <div class="skill">
-            Optimization
-        </div>
-
-        <div class="skill">
-            Machine Learning
-        </div>
-
-        <div class="skill">
-            Python
-        </div>
-
-        <div class="skill">
-            MATLAB
-        </div>
-
-        <div class="skill">
-            Data Analysis
-        </div>
-
-        <div class="skill">
-            Supply Chain Management
-        </div>
-
-        <div class="skill">
-            Git & GitHub
-        </div>
-
-        <div class="skill">
-            HTML & CSS
-        </div>
-
-        <div class="skill">
-            LaTeX
-        </div>
-
-    </div>
-
+  <h2>Skills</h2>
+  <p class="hint">Click a skill to see the projects that use it.</p>
+  <div class="chips">
+    <button class="chip" data-f="or">Operations Research</button>
+    <button class="chip" data-f="or">Optimization</button>
+    <button class="chip" data-f="ml">Machine Learning</button>
+    <button class="chip" data-f="ml">Python</button>
+    <button class="chip" data-f="or">MATLAB</button>
+    <button class="chip" data-f="ml">Data Analysis</button>
+    <button class="chip" data-f="or">Supply Chain Management</button>
+    <button class="chip" data-f="web">Git &amp; GitHub</button>
+    <button class="chip" data-f="web">HTML &amp; CSS</button>
+    <button class="chip" data-f="web">LaTeX</button>
+  </div>
 </section>
-
-
-
-<!-- ================= PROJECTS ================= -->
 
 <section id="projects">
-
-    <h2 class="section-title">
-        My <span>Projects</span>
-    </h2>
-
-
-    <div class="projects">
-
-
-        <div class="project-card">
-
-            <h3>
-                Dynamic EOQ Model
-            </h3>
-
-            <p>
-
-                A data-driven Dynamic Economic Order Quantity
-                model for aluminium procurement using market
-                price data, MATLAB and optimization techniques.
-
-            </p>
-
-            <a
-                href="#"
-                class="project-link"
-            >
-                View Project →
-            </a>
-
-        </div>
-
-
-
-        <div class="project-card">
-
-            <h3>
-                Machine Learning Projects
-            </h3>
-
-            <p>
-
-                Projects involving data preprocessing,
-                regression, model evaluation, feature scaling
-                and predictive modelling using Python and
-                machine learning libraries.
-
-            </p>
-
-            <a
-                href="#"
-                class="project-link"
-            >
-                View Project →
-            </a>
-
-        </div>
-
-
-
-        <div class="project-card">
-
-            <h3>
-                Team Spidey
-            </h3>
-
-            <p>
-
-                A team profile and portfolio website designed
-                to showcase team members, projects, skills
-                and achievements.
-
-            </p>
-
-            <a
-                href="https://github.com/krvaibhav78/Team-Spidey"
-                target="_blank"
-                class="project-link"
-            >
-                View on GitHub →
-            </a>
-
-        </div>
-
-    </div>
-
+  <h2>Projects</h2>
+  <div class="chips" id="filters" style="margin-bottom:16px">
+    <button class="chip on" data-f="all">All</button>
+    <button class="chip" data-f="or">Operations research</button>
+    <button class="chip" data-f="ml">Machine learning</button>
+    <button class="chip" data-f="web">Web</button>
+  </div>
+  <div class="grid">
+    <article class="card proj" data-t="or">
+      <h3>Dynamic EOQ Model</h3>
+      <p>A data-driven Dynamic Economic Order Quantity model for aluminium procurement using market price data, MATLAB and optimization techniques.</p>
+      <span class="tag">MATLAB</span><span class="tag">Optimization</span>
+      <div><button class="more" aria-expanded="false">Show details</button></div>
+      <div class="extra">Tools: MATLAB, optimization, market price data. Try the live EOQ calculator at the top of this page to see the idea behind it.</div>
+    </article>
+    <article class="card proj" data-t="ml">
+      <h3>Machine Learning Projects</h3>
+      <p>Projects involving data preprocessing, regression, model evaluation, feature scaling and predictive modelling using Python and machine learning libraries.</p>
+      <span class="tag">Python</span><span class="tag">Regression</span>
+      <div><button class="more" aria-expanded="false">Show details</button></div>
+      <div class="extra">Covers data preprocessing, regression, model evaluation, feature scaling and predictive modelling.</div>
+    </article>
+    <article class="card proj" data-t="web">
+      <h3>Team Spidey</h3>
+      <p>A team profile and portfolio website designed to showcase team members, projects, skills and achievements.</p>
+      <span class="tag">HTML &amp; CSS</span><span class="tag">GitHub</span>
+      <div><button class="more" aria-expanded="false">Show details</button></div>
+      <div class="extra"><a href="https://github.com/krvaibhav78/Team-Spidey">View on GitHub</a></div>
+    </article>
+  </div>
+  <p id="none" class="hint" hidden>No projects match this filter yet.</p>
 </section>
-
-
-
-<!-- ================= ACHIEVEMENTS ================= -->
 
 <section id="achievements">
-
-    <h2 class="section-title">
-        <span>Achievements</span>
-    </h2>
-
-
-    <div class="achievement">
-
-        <strong>
-            Academic Achievement:
-        </strong>
-
-        BTech in Agricultural Engineering with
-        a CGPA of 8.19 / 10.
-
-    </div>
-
-
-    <div class="achievement">
-
-        <strong>
-            GATE Agricultural Engineering:
-        </strong>
-
-        Qualified GATE in Agricultural Engineering.
-
-    </div>
-
-
-    <div class="achievement">
-
-        <strong>
-            IIT Delhi:
-        </strong>
-
-        Currently pursuing MTech in Industrial Engineering
-        and Operations Research at IIT Delhi.
-
-    </div>
-
+  <h2>Achievements</h2>
+  <div class="grid">
+    <div class="card"><h3>Academic</h3>BTech in Agricultural Engineering with a CGPA of 8.19 / 10.</div>
+    <div class="card"><h3>GATE</h3>Qualified GATE in Agricultural Engineering.</div>
+    <div class="card"><h3>IIT Delhi</h3>Pursuing MTech in Industrial Engineering and Operations Research.</div>
+  </div>
 </section>
-
-
-
-<!-- ================= CONTACT ================= -->
 
 <section id="contact">
-
-    <h2 class="section-title">
-        Contact <span>Me</span>
-    </h2>
-
-
-    <div class="contact">
-
-        <p>
-            I'm always open to connecting, collaborating
-            and discussing interesting projects.
-        </p>
-
-
-        <p>
-            📧
-
-            <a href="mailto:krvaibhav78@gmail.com">
-
-                krvaibhav78@gmail.com
-
-            </a>
-
-        </p>
-
-
-        <div class="social-links">
-
-            <a
-                href="https://github.com/krvaibhav78"
-                target="_blank"
-            >
-                GitHub
-            </a>
-
-
-            <a
-                href="https://linkedin.com/in/kumar-vaibhav-119437291"
-                target="_blank"
-            >
-                LinkedIn
-            </a>
-
-        </div>
-
-    </div>
-
+  <h2>Contact me</h2>
+  <p>I'm always open to connecting, collaborating and discussing interesting projects.</p>
+  <p><button class="btn" id="copy">Copy email address</button>
+  <a class="btn alt" href="mailto:krvaibhav78@gmail.com">Write an email</a>
+  <a class="btn alt" href="https://github.com/krvaibhav78">GitHub</a>
+  <a class="btn alt" href="https://linkedin.com/in/kumar-vaibhav-119437291">LinkedIn</a></p>
 </section>
+</main>
 
+<footer>© 2026 Kumar Vaibhav. All Rights Reserved.</footer>
+<div id="toast" role="status"></div>
 
+<script>
+const $ = id => document.getElementById(id);
+const fmt = n => Math.round(n).toLocaleString('en-IN');
 
-<!-- ================= FOOTER ================= -->
+/* ---------- EOQ playground ---------- */
+function render() {
+  const D = +$('D').value, S = +$('S').value, H = +$('H').value, m = +$('M').value;
+  $('Do').textContent = fmt(D); $('So').textContent = '₹' + fmt(S);
+  $('Ho').textContent = '₹' + H; $('Mo').textContent = m.toFixed(2) + '×';
 
-<footer>
+  const Qs = Math.sqrt(2 * D * S / H);           // best order size
+  const ord = q => D / q * S, hold = q => q / 2 * H, tot = q => ord(q) + hold(q);
+  const best = tot(Qs), Q = Qs * m;
+  const lo = Qs * 0.2, hi = Qs * 3, ymax = best * 3;
+  const X = q => 10 + (q - lo) / (hi - lo) * 580;
+  const Y = c => 210 - Math.min(c, ymax) / ymax * 195;
+  const path = f => {
+    let d = '';
+    for (let i = 0; i <= 60; i++) {
+      const q = lo + (hi - lo) * i / 60;
+      d += (i ? 'L' : 'M') + X(q).toFixed(1) + ' ' + Y(f(q)).toFixed(1);
+    }
+    return d;
+  };
+  $('chart').innerHTML =
+    '<line class="ax" x1="10" y1="210" x2="590" y2="210"/>' +
+    '<path class="c-o" d="' + path(ord) + '"/><path class="c-h" d="' + path(hold) + '"/><path class="c-t" d="' + path(tot) + '"/>' +
+    '<line x1="' + X(Qs) + '" x2="' + X(Qs) + '" y1="15" y2="210" stroke="var(--amber)" stroke-dasharray="4 4"/>' +
+    '<circle cx="' + X(Qs) + '" cy="' + Y(best) + '" r="7" fill="var(--amber)"/>' +
+    '<circle cx="' + X(Q) + '" cy="' + Y(tot(Q)) + '" r="6" fill="var(--teal)" stroke="var(--bg)" stroke-width="2"/>' +
+    '<text x="300" y="232" text-anchor="middle" font-size="12" fill="var(--mute)">Order size (units per order)</text>';
 
-    © 2026 Kumar Vaibhav.
-    All Rights Reserved.
+  $('qs').textContent = fmt(Qs); $('tc').textContent = '₹' + fmt(best); $('ny').textContent = (D / Qs).toFixed(1);
+  const extra = (tot(Q) / best - 1) * 100;
+  $('verdict').textContent = extra < 0.5
+    ? 'You found it! Your order size is the cheapest option.'
+    : 'Ordering ' + fmt(Q) + ' units costs ' + extra.toFixed(0) + '% more than the best size.';
+}
+['D', 'S', 'H', 'M'].forEach(id => $(id).addEventListener('input', render));
+render();
 
-</footer>
+/* ---------- Project filter (used by skills and filter chips) ---------- */
+function filterProjects(f) {
+  let shown = 0;
+  document.querySelectorAll('.proj').forEach(p => {
+    const ok = f === 'all' || p.dataset.t === f;
+    p.classList.toggle('hide', !ok); if (ok) shown++;
+  });
+  $('none').hidden = shown > 0;
+  document.querySelectorAll('#filters .chip').forEach(c => c.classList.toggle('on', c.dataset.f === f));
+}
+$('filters').addEventListener('click', e => { if (e.target.dataset.f) filterProjects(e.target.dataset.f); });
+document.querySelectorAll('#skills .chip').forEach(c => c.addEventListener('click', () => {
+  filterProjects(c.dataset.f);
+  $('projects').scrollIntoView();
+}));
 
+/* ---------- Expandable project cards ---------- */
+document.querySelectorAll('.proj .more').forEach(b => b.addEventListener('click', () => {
+  const card = b.closest('.proj'), open = card.classList.toggle('open');
+  b.setAttribute('aria-expanded', open);
+  b.textContent = open ? 'Hide details' : 'Show details';
+}));
 
+/* ---------- Highlight current section in the menu ---------- */
+const links = [...document.querySelectorAll('#nav a')];
+const io = new IntersectionObserver(entries => entries.forEach(en => {
+  if (en.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + en.target.id));
+}), { rootMargin: '-45% 0px -50% 0px' });
+['home', 'about', 'education', 'skills', 'projects', 'contact'].forEach(id => io.observe($(id)));
+
+/* ---------- Theme toggle (remembered) ---------- */
+const root = document.documentElement;
+try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+$('theme').addEventListener('click', () => {
+  const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme:dark)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+});
+
+/* ---------- Copy email ---------- */
+function toast(msg) { const t = $('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 1800); }
+$('copy').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText('krvaibhav78@gmail.com'); toast('Email copied'); }
+  catch (e) { toast('Copy failed. Email: krvaibhav78@gmail.com'); }
+});
+</script>
 </body>
-
 </html>
-```
-
