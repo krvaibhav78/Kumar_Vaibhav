@@ -4,77 +4,123 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kumar Vaibhav | Portfolio</title>
+<meta name="theme-color" content="#12050a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@600;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f3f6fa;--card:#fff;--ink:#14213d;--mute:#56627a;--line:#d5dce8;--teal:#0f7f81;--amber:#d98a1c;--rose:#b4456a;}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1626;--card:#15223a;--ink:#e8eef9;--mute:#9aa7c0;--line:#27395b;--teal:#3cc3c5;--amber:#f0b04a;--rose:#e67a9f;}}
-:root[data-theme="dark"]{--bg:#0d1626;--card:#15223a;--ink:#e8eef9;--mute:#9aa7c0;--line:#27395b;--teal:#3cc3c5;--amber:#f0b04a;--rose:#e67a9f;}
+:root{
+  --bg:#12050a;        /* deep wine black */
+  --surface:#1e0a11;   /* card */
+  --line:#3b1722;      /* borders */
+  --ink:#f6e9e6;       /* warm white */
+  --mute:#b99b9b;
+  --red:#e5313b;       /* main accent */
+  --ember:#ff7a45;     /* hot highlight */
+  --blush:#f4c7c3;
+}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.6}
-a{color:var(--teal)}
-:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
-header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:10px 5vw;gap:12px}
-.logo{font-weight:800;font-size:1.4rem;color:var(--ink);text-decoration:none}
-nav{display:flex;gap:4px;flex-wrap:wrap}
-nav a{color:var(--mute);text-decoration:none;padding:6px 10px;border-radius:8px;font-size:.95rem}
-nav a.on{color:var(--ink);background:var(--card);box-shadow:inset 0 -2px 0 var(--teal)}
-button{font:inherit;cursor:pointer;color:inherit}
-#theme{border:1px solid var(--line);background:var(--card);border-radius:50%;width:38px;height:38px}
-main{max-width:1050px;margin:0 auto;padding:0 5vw}
-section{padding:64px 0 24px}
-h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;margin:0 0 12px;font-weight:800}
-h2{font-size:1.9rem;margin:0 0 20px}
-h3{margin:0 0 6px}
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;padding-top:48px}
-.hero p{max-width:52ch}
-.avatar{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--teal);margin-bottom:14px}
-.btn{display:inline-block;padding:10px 18px;border-radius:10px;border:1px solid var(--teal);background:var(--teal);color:var(--bg);text-decoration:none;font-weight:600}
-.btn.alt{background:transparent;color:var(--teal)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-.lab h2{font-size:1.15rem;margin-bottom:2px}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;line-height:1.65;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(700px 500px at 85% -5%,rgba(229,49,59,.22),transparent 70%),
+  radial-gradient(600px 500px at -5% 60%,rgba(120,10,30,.35),transparent 70%)}
+#glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(260px circle at var(--x,50%) var(--y,30%),rgba(255,70,70,.14),transparent 70%)}
+a{color:var(--ember)}
+:focus-visible{outline:3px solid var(--ember);outline-offset:3px}
+button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,h3{font-family:Syne,sans-serif;margin:0}
+
+/* header */
+header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:12px 5vw;background:rgba(18,5,10,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font-family:Syne,sans-serif;font-weight:800;font-size:1.5rem;color:var(--ink);text-decoration:none}
+.logo b{color:var(--red)}
+nav{display:flex;gap:2px;flex-wrap:wrap}
+nav a{color:var(--mute);text-decoration:none;padding:7px 14px;border-radius:999px;font-size:.93rem;transition:.2s}
+nav a:hover{color:var(--ink)}
+nav a.on{background:var(--red);color:#fff}
+
+main{max-width:1080px;margin:0 auto;padding:0 5vw}
+section{padding:80px 0 20px}
+h2{font-size:clamp(1.8rem,3.5vw,2.5rem);margin-bottom:26px;display:flex;align-items:center;gap:16px}
+h2::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--red),transparent)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center;padding-top:60px;min-height:84vh}
+.avatar{width:92px;height:92px;border-radius:50%;object-fit:cover;border:2px solid var(--red);box-shadow:0 0 0 6px rgba(229,49,59,.15),0 0 40px rgba(229,49,59,.35);margin-bottom:20px}
+h1{font-size:clamp(2.8rem,7vw,5rem);line-height:.98;font-weight:800;letter-spacing:-.02em;margin-bottom:16px}
+.role{color:var(--blush);font-size:1.1rem;font-weight:500;margin:0 0 14px}
+.hero p{max-width:50ch;color:var(--mute)}
+.btn{display:inline-block;padding:11px 22px;border-radius:999px;border:1px solid var(--red);background:var(--red);color:#fff;text-decoration:none;font-weight:700;transition:.2s}
+.btn:hover{box-shadow:0 0 24px rgba(229,49,59,.55);transform:translateY(-2px)}
+.btn.alt{background:transparent;color:var(--blush)}
+.btn.alt:hover{background:rgba(229,49,59,.15)}
+
+/* cards */
+.card{background:linear-gradient(160deg,var(--surface),#170810);border:1px solid var(--line);border-radius:18px;padding:22px;transition:.25s}
+.proj:hover,.ach:hover{border-color:var(--red);box-shadow:0 10px 40px rgba(229,49,59,.18)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
+.card h3{font-size:1.2rem;margin-bottom:8px}
+.card p{margin:0 0 12px;color:var(--mute)}
+
+/* EOQ lab */
+.lab{border-color:#5a1d2b;box-shadow:0 0 60px rgba(229,49,59,.16)}
+.lab h2{font-size:1.25rem;margin:0 0 2px}
+.lab h2::after{display:none}
 .lab small{color:var(--mute)}
-.ctl{display:grid;grid-template-columns:110px 1fr 70px;align-items:center;gap:8px;font-size:.9rem;margin:6px 0}
-.ctl output{text-align:right;font-variant-numeric:tabular-nums}
-input[type=range]{width:100%;accent-color:var(--teal)}
-svg{width:100%;height:auto;display:block;margin:8px 0}
-.ax{stroke:var(--line);stroke-width:1}
-.c-o{stroke:var(--rose)}.c-h{stroke:var(--amber)}.c-t{stroke:var(--teal);stroke-width:3}
+.ctl{display:grid;grid-template-columns:110px 1fr 74px;align-items:center;gap:10px;font-size:.88rem;margin:7px 0}
+.ctl output{text-align:right;font-variant-numeric:tabular-nums;color:var(--blush)}
+input[type=range]{width:100%;accent-color:var(--red)}
+svg{width:100%;height:auto;display:block;margin:10px 0 4px}
+.ax{stroke:var(--line)}
 .c-o,.c-h,.c-t{fill:none;stroke-width:2}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
-.stats b{display:block;font-size:1.15rem}
-.stats span{font-size:.78rem;color:var(--mute)}
-.legend{font-size:.8rem;color:var(--mute);display:flex;gap:14px;flex-wrap:wrap}
+.c-o{stroke:var(--ember)}.c-h{stroke:var(--blush)}.c-t{stroke:var(--red);stroke-width:3.5}
+.legend{font-size:.78rem;color:var(--mute);display:flex;gap:14px;flex-wrap:wrap}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
-#verdict{font-size:.9rem;margin:8px 0 0;min-height:1.4em}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.tl{border-left:3px solid var(--teal);padding-left:18px;display:grid;gap:18px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-size:.92rem}
-.chip:hover,.chip.on{border-color:var(--teal);background:var(--teal);color:var(--bg)}
-.hint{color:var(--mute);font-size:.9rem;margin:0 0 14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;margin-top:12px}
+.stats b{display:block;font-family:Syne,sans-serif;font-size:1.2rem;color:#fff}
+.stats span{font-size:.75rem;color:var(--mute)}
+#verdict{margin:10px 0 0;min-height:1.5em;font-size:.9rem;color:var(--blush)}
+
+/* education timeline */
+.tl{border-left:2px solid var(--red);margin-left:6px;padding-left:26px;display:grid;gap:24px}
+.tl>div{position:relative}
+.tl>div::before{content:"";position:absolute;left:-34px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--red);box-shadow:0 0 16px var(--red)}
+.tl h3{font-size:1.2rem}
+.tl span.meta{color:var(--mute)}
+
+/* chips, tags */
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:8px 18px;transition:.2s}
+.chip:hover{border-color:var(--red);transform:translateY(-2px)}
+.chip.on{background:var(--red);border-color:var(--red);color:#fff}
+.hint{color:var(--mute);font-size:.92rem;margin:0 0 16px}
+.tag{display:inline-block;font-size:.78rem;color:var(--blush);background:rgba(229,49,59,.12);border:1px solid var(--line);border-radius:6px;padding:1px 9px;margin:0 4px 4px 0}
 .proj.hide{display:none}
-.proj button.more{margin-top:10px;background:none;border:none;color:var(--teal);padding:0;font-weight:600}
-.proj .extra{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:.92rem;color:var(--mute)}
+.links{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 0}
+.links a{font-weight:700;text-decoration:none;font-size:.92rem}
+.links a:hover{text-decoration:underline}
+.more{background:none;border:none;color:var(--ember);padding:0;font-weight:700;margin-top:6px}
+.extra{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:.92rem;color:var(--mute)}
 .proj.open .extra{display:block}
-.tag{font-size:.78rem;color:var(--mute);border:1px solid var(--line);border-radius:6px;padding:1px 7px;margin-right:4px}
-footer{text-align:center;color:var(--mute);padding:40px 0;font-size:.9rem}
-#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .2s}
+
+footer{text-align:center;color:var(--mute);padding:60px 0 40px;font-size:.9rem}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;padding:9px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s}
 #toast.show{opacity:1}
-@media (max-width:800px){.hero{grid-template-columns:1fr}nav a{padding:6px}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#toast{transition:none}}
+
+@media (max-width:820px){.hero{grid-template-columns:1fr;min-height:0}nav a{padding:6px 9px}.logo{font-size:1.2rem}}
+@media (hover:none){#glow{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}#glow{display:none}}
 </style>
 </head>
 <body>
+<div id="glow"></div>
 <header>
-  <a class="logo" href="#home">KV.</a>
+  <a class="logo" href="#home">KV<b>.</b></a>
   <nav id="nav">
     <a href="#home">Home</a><a href="#about">About</a><a href="#education">Education</a>
     <a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
   </nav>
-  <button id="theme" aria-label="Switch light or dark theme">◐</button>
 </header>
 
 <main>
@@ -82,21 +128,21 @@ footer{text-align:center;color:var(--mute);padding:40px 0;font-size:.9rem}
   <div>
     <img class="avatar" src="profile.jpg" alt="Kumar Vaibhav" onerror="this.style.display='none'">
     <h1>Hi, I'm Kumar Vaibhav</h1>
-    <h2 style="font-size:1.15rem;color:var(--mute);font-weight:600">MTech Student at IIT Delhi, Industrial Engineering &amp; Operations Research</h2>
+    <p class="role">MTech Student at IIT Delhi, Industrial Engineering &amp; Operations Research</p>
     <p>I'm an engineering graduate working on optimization, operations research, machine learning and data analytics, solving real-world problems with computational and data-driven approaches.</p>
-    <p><a class="btn" href="#projects">View my projects</a> <a class="btn alt" href="#contact">Contact me</a></p>
+    <p style="margin-top:22px"><a class="btn" href="#projects">View my projects</a> <a class="btn alt" href="#contact">Contact me</a></p>
   </div>
 
   <div class="card lab" aria-labelledby="labT">
     <h2 id="labT">Try it: find the best order size</h2>
-    <small>The classic EOQ model behind my Dynamic EOQ project. Move the sliders.</small>
+    <small>The EOQ model behind my Dynamic EOQ project. Move the sliders.</small>
     <div class="ctl"><label for="D">Yearly demand</label><input id="D" type="range" min="1000" max="20000" step="500" value="12000"><output id="Do"></output></div>
     <div class="ctl"><label for="S">Cost per order</label><input id="S" type="range" min="50" max="2000" step="50" value="500"><output id="So"></output></div>
     <div class="ctl"><label for="H">Holding cost</label><input id="H" type="range" min="1" max="50" step="1" value="12"><output id="Ho"></output></div>
     <div class="ctl"><label for="M">Your order size</label><input id="M" type="range" min="0.2" max="3" step="0.05" value="0.6"><output id="Mo"></output></div>
     <svg id="chart" viewBox="0 0 600 240" role="img" aria-label="Cost curves against order size"></svg>
-    <div class="legend"><span><i style="background:var(--rose)"></i>Ordering cost</span><span><i style="background:var(--amber)"></i>Holding cost</span><span><i style="background:var(--teal)"></i>Total cost</span></div>
-    <div class="stats" style="margin-top:10px">
+    <div class="legend"><span><i style="background:var(--ember)"></i>Ordering cost</span><span><i style="background:var(--blush)"></i>Holding cost</span><span><i style="background:var(--red)"></i>Total cost</span></div>
+    <div class="stats">
       <div><b id="qs"></b><span>Best order size</span></div>
       <div><b id="tc"></b><span>Lowest yearly cost</span></div>
       <div><b id="ny"></b><span>Orders per year</span></div>
@@ -107,15 +153,15 @@ footer{text-align:center;color:var(--mute);padding:40px 0;font-size:.9rem}
 
 <section id="about">
   <h2>About me</h2>
-  <p style="max-width:70ch">I completed my Bachelor of Technology in Agricultural Engineering from the Indian Agricultural Research Institute (IARI), New Delhi, with a CGPA of 8.19. I'm now pursuing my MTech in Industrial Engineering and Operations Research at IIT Delhi.</p>
-  <p style="max-width:70ch">I'm interested in optimization, operations research, machine learning, supply chain management, data analysis and technology-driven problem solving.</p>
+  <p style="max-width:68ch;color:var(--mute)">I completed my Bachelor of Technology in Agricultural Engineering from the Indian Agricultural Research Institute (IARI), New Delhi, with a CGPA of 8.19. I'm now pursuing my MTech in Industrial Engineering and Operations Research at IIT Delhi.</p>
+  <p style="max-width:68ch;color:var(--mute)">I'm interested in optimization, operations research, machine learning, supply chain management, data analysis and technology-driven problem solving.</p>
 </section>
 
 <section id="education">
   <h2>Education</h2>
   <div class="tl">
-    <div><h3>Master of Technology (MTech)</h3>Industrial Engineering and Operations Research<br>Indian Institute of Technology Delhi<br><span class="tag">Currently pursuing</span></div>
-    <div><h3>Bachelor of Technology (BTech)</h3>Agricultural Engineering<br>Indian Agricultural Research Institute (IARI), New Delhi<br><span class="tag">2022 – 2026</span><span class="tag">CGPA 8.19 / 10</span></div>
+    <div><h3>Master of Technology (MTech)</h3><span class="meta">Industrial Engineering and Operations Research<br>Indian Institute of Technology Delhi</span><br><span class="tag">Currently pursuing</span></div>
+    <div><h3>Bachelor of Technology (BTech)</h3><span class="meta">Agricultural Engineering<br>Indian Agricultural Research Institute (IARI), New Delhi</span><br><span class="tag">2022 – 2026</span><span class="tag">CGPA 8.19 / 10</span></div>
   </div>
 </section>
 
@@ -125,11 +171,14 @@ footer{text-align:center;color:var(--mute);padding:40px 0;font-size:.9rem}
   <div class="chips">
     <button class="chip" data-f="or">Operations Research</button>
     <button class="chip" data-f="or">Optimization</button>
-    <button class="chip" data-f="ml">Machine Learning</button>
-    <button class="chip" data-f="ml">Python</button>
+    <button class="chip" data-f="ai">Machine Learning</button>
+    <button class="chip" data-f="ai">Python</button>
     <button class="chip" data-f="or">MATLAB</button>
-    <button class="chip" data-f="ml">Data Analysis</button>
+    <button class="chip" data-f="or">Data Analysis</button>
     <button class="chip" data-f="or">Supply Chain Management</button>
+    <button class="chip" data-f="web">React</button>
+    <button class="chip" data-f="web">Node.js</button>
+    <button class="chip" data-f="ai">Solidity</button>
     <button class="chip" data-f="web">Git &amp; GitHub</button>
     <button class="chip" data-f="web">HTML &amp; CSS</button>
     <button class="chip" data-f="web">LaTeX</button>
@@ -138,13 +187,37 @@ footer{text-align:center;color:var(--mute);padding:40px 0;font-size:.9rem}
 
 <section id="projects">
   <h2>Projects</h2>
-  <div class="chips" id="filters" style="margin-bottom:16px">
+  <div class="chips" id="filters" style="margin-bottom:20px">
     <button class="chip on" data-f="all">All</button>
     <button class="chip" data-f="or">Operations research</button>
-    <button class="chip" data-f="ml">Machine learning</button>
+    <button class="chip" data-f="ai">AI &amp; Blockchain</button>
     <button class="chip" data-f="web">Web</button>
   </div>
   <div class="grid">
+    <article class="card proj" data-t="web">
+      <h3>Handoff: Student Marketplace</h3>
+      <p>A full-stack marketplace where students buy and sell pre-owned products, with secure sign-up, product listings and buyer-seller chat. Live and deployed.</p>
+      <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span>
+      <div class="links"><a href="https://handoff-five-xi.vercel.app">Live demo ↗</a><a href="https://github.com/krvaibhav78/Handoff">GitHub ↗</a></div>
+      <div><button class="more" aria-expanded="false">Show details</button></div>
+      <div class="extra">Features: register and log in (JWT and bcrypt), create, edit and delete listings, search by keyword and category, and message sellers about a listing. Frontend on Vercel, backend on Render, database on Neon PostgreSQL.</div>
+    </article>
+    <article class="card proj" data-t="ai">
+      <h3>FarmVerse</h3>
+      <p>A WhatsApp-first, AI-powered financial system that brings micro-loans, insurance and market prices to India's smallholder farmers, using smart contracts on Ethereum.</p>
+      <span class="tag">Solidity</span><span class="tag">AI agents</span><span class="tag">React</span>
+      <div class="links"><a href="https://github.com/krvaibhav78/Farmverse">GitHub ↗</a></div>
+      <div><button class="more" aria-expanded="false">Show details</button></div>
+      <div class="extra">Team project. Smart contracts for lending, insurance and market price data, AI agents that react to weather, satellite and price signals, a Twilio WhatsApp bot, an LLM service in Python, and a React dashboard.</div>
+    </article>
+    <article class="card proj" data-t="ai">
+      <h3>Agentic Ethereum Hackathon India</h3>
+      <p>Our FarmVerse submission to the Agentic Ethereum Hackathon by Reskilll &amp; Geodework: autonomous AI agents and DeFi to give farmers access to credit, insurance and markets.</p>
+      <span class="tag">Ethereum</span><span class="tag">Hackathon</span><span class="tag">DeFi</span>
+      <div class="links"><a href="https://github.com/krvaibhav78/Agentic_Ethereum_Hackathon_India">GitHub ↗</a></div>
+      <div><button class="more" aria-expanded="false">Show details</button></div>
+      <div class="extra">The problem: many Indian farmers have no credit history and little protection from loan sharks or climate losses. The idea: a simple WhatsApp conversation that triggers loans, insurance and crop-price alerts behind the scenes.</div>
+    </article>
     <article class="card proj" data-t="or">
       <h3>Dynamic EOQ Model</h3>
       <p>A data-driven Dynamic Economic Order Quantity model for aluminium procurement using market price data, MATLAB and optimization techniques.</p>
@@ -152,19 +225,13 @@ footer{text-align:center;color:var(--mute);padding:40px 0;font-size:.9rem}
       <div><button class="more" aria-expanded="false">Show details</button></div>
       <div class="extra">Tools: MATLAB, optimization, market price data. Try the live EOQ calculator at the top of this page to see the idea behind it.</div>
     </article>
-    <article class="card proj" data-t="ml">
-      <h3>Machine Learning Projects</h3>
-      <p>Projects involving data preprocessing, regression, model evaluation, feature scaling and predictive modelling using Python and machine learning libraries.</p>
-      <span class="tag">Python</span><span class="tag">Regression</span>
-      <div><button class="more" aria-expanded="false">Show details</button></div>
-      <div class="extra">Covers data preprocessing, regression, model evaluation, feature scaling and predictive modelling.</div>
-    </article>
     <article class="card proj" data-t="web">
       <h3>Team Spidey</h3>
       <p>A team profile and portfolio website designed to showcase team members, projects, skills and achievements.</p>
       <span class="tag">HTML &amp; CSS</span><span class="tag">GitHub</span>
+      <div class="links"><a href="https://github.com/krvaibhav78/Team-Spidey">GitHub ↗</a></div>
       <div><button class="more" aria-expanded="false">Show details</button></div>
-      <div class="extra"><a href="https://github.com/krvaibhav78/Team-Spidey">View on GitHub</a></div>
+      <div class="extra">Built with HTML and CSS. The source code is on GitHub.</div>
     </article>
   </div>
   <p id="none" class="hint" hidden>No projects match this filter yet.</p>
@@ -173,15 +240,15 @@ footer{text-align:center;color:var(--mute);padding:40px 0;font-size:.9rem}
 <section id="achievements">
   <h2>Achievements</h2>
   <div class="grid">
-    <div class="card"><h3>Academic</h3>BTech in Agricultural Engineering with a CGPA of 8.19 / 10.</div>
-    <div class="card"><h3>GATE</h3>Qualified GATE in Agricultural Engineering.</div>
-    <div class="card"><h3>IIT Delhi</h3>Pursuing MTech in Industrial Engineering and Operations Research.</div>
+    <div class="card ach"><h3>Academic</h3><p>BTech in Agricultural Engineering with a CGPA of 8.19 / 10.</p></div>
+    <div class="card ach"><h3>GATE</h3><p>Qualified GATE in Agricultural Engineering.</p></div>
+    <div class="card ach"><h3>IIT Delhi</h3><p>Pursuing MTech in Industrial Engineering and Operations Research.</p></div>
   </div>
 </section>
 
 <section id="contact">
   <h2>Contact me</h2>
-  <p>I'm always open to connecting, collaborating and discussing interesting projects.</p>
+  <p style="color:var(--mute)">I'm always open to connecting, collaborating and discussing interesting projects.</p>
   <p><button class="btn" id="copy">Copy email address</button>
   <a class="btn alt" href="mailto:krvaibhav78@gmail.com">Write an email</a>
   <a class="btn alt" href="https://github.com/krvaibhav78">GitHub</a>
@@ -202,7 +269,7 @@ function render() {
   $('Do').textContent = fmt(D); $('So').textContent = '₹' + fmt(S);
   $('Ho').textContent = '₹' + H; $('Mo').textContent = m.toFixed(2) + '×';
 
-  const Qs = Math.sqrt(2 * D * S / H);           // best order size
+  const Qs = Math.sqrt(2 * D * S / H);           // best order size (EOQ formula)
   const ord = q => D / q * S, hold = q => q / 2 * H, tot = q => ord(q) + hold(q);
   const best = tot(Qs), Q = Qs * m;
   const lo = Qs * 0.2, hi = Qs * 3, ymax = best * 3;
@@ -219,9 +286,9 @@ function render() {
   $('chart').innerHTML =
     '<line class="ax" x1="10" y1="210" x2="590" y2="210"/>' +
     '<path class="c-o" d="' + path(ord) + '"/><path class="c-h" d="' + path(hold) + '"/><path class="c-t" d="' + path(tot) + '"/>' +
-    '<line x1="' + X(Qs) + '" x2="' + X(Qs) + '" y1="15" y2="210" stroke="var(--amber)" stroke-dasharray="4 4"/>' +
-    '<circle cx="' + X(Qs) + '" cy="' + Y(best) + '" r="7" fill="var(--amber)"/>' +
-    '<circle cx="' + X(Q) + '" cy="' + Y(tot(Q)) + '" r="6" fill="var(--teal)" stroke="var(--bg)" stroke-width="2"/>' +
+    '<line x1="' + X(Qs) + '" x2="' + X(Qs) + '" y1="15" y2="210" stroke="var(--ember)" stroke-dasharray="4 4"/>' +
+    '<circle cx="' + X(Qs) + '" cy="' + Y(best) + '" r="7" fill="var(--ember)"/>' +
+    '<circle cx="' + X(Q) + '" cy="' + Y(tot(Q)) + '" r="6" fill="#fff" stroke="var(--red)" stroke-width="3"/>' +
     '<text x="300" y="232" text-anchor="middle" font-size="12" fill="var(--mute)">Order size (units per order)</text>';
 
   $('qs').textContent = fmt(Qs); $('tc').textContent = '₹' + fmt(best); $('ny').textContent = (D / Qs).toFixed(1);
@@ -233,7 +300,7 @@ function render() {
 ['D', 'S', 'H', 'M'].forEach(id => $(id).addEventListener('input', render));
 render();
 
-/* ---------- Project filter (used by skills and filter chips) ---------- */
+/* ---------- Project filter ---------- */
 function filterProjects(f) {
   let shown = 0;
   document.querySelectorAll('.proj').forEach(p => {
@@ -256,20 +323,17 @@ document.querySelectorAll('.proj .more').forEach(b => b.addEventListener('click'
   b.textContent = open ? 'Hide details' : 'Show details';
 }));
 
-/* ---------- Highlight current section in the menu ---------- */
+/* ---------- Highlight current section in menu ---------- */
 const links = [...document.querySelectorAll('#nav a')];
 const io = new IntersectionObserver(entries => entries.forEach(en => {
   if (en.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + en.target.id));
 }), { rootMargin: '-45% 0px -50% 0px' });
 ['home', 'about', 'education', 'skills', 'projects', 'contact'].forEach(id => io.observe($(id)));
 
-/* ---------- Theme toggle (remembered) ---------- */
-const root = document.documentElement;
-try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
-$('theme').addEventListener('click', () => {
-  const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme:dark)').matches;
-  root.dataset.theme = dark ? 'light' : 'dark';
-  try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+/* ---------- Red spotlight that follows the cursor ---------- */
+addEventListener('pointermove', e => {
+  document.documentElement.style.setProperty('--x', e.clientX + 'px');
+  document.documentElement.style.setProperty('--y', e.clientY + 'px');
 });
 
 /* ---------- Copy email ---------- */
